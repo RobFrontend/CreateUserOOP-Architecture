@@ -4,7 +4,7 @@
 const year = document.querySelector(".year");
 year.textContent = new Date().getFullYear();
 
-// Array for users
+// Array for users (LET bcs of LocalStorage)
 let Users = [];
 // Display Users in HTML
 
@@ -22,9 +22,9 @@ const btnsCloseModal = document.querySelectorAll(".modal-btn");
 const infoCreated = document.querySelector(".created-txt");
 const infoNickTaken = document.querySelector(".input-nick");
 const h3 = document.querySelector("h3");
-////////////////////////////////////////////
 
-// OOP
+////////////////////////////////////////////
+// Class of creating Users manually and of using it in Application class to create Users in DOM
 class User {
   constructor(nick, firstName, lastName, birthYear, age) {
     this.nick = nick.trim();
@@ -34,7 +34,7 @@ class User {
       lastName.at(0).toUpperCase().trim() + lastName.slice(1).toLowerCase();
     this.birthYear = +birthYear;
     this.age = new Date().getFullYear() - birthYear;
-    // Array
+    // Working with Array
     this.pushUser();
     this.allUsersBox();
   }
@@ -60,11 +60,11 @@ const rob97 = new User("rob97", "Robert", "Grabowski", "1997");
 const jan81 = new User("jan81", "Jan", "Kowalski", "1981");
 
 ///////////////////////////////////////////////////////////////////////////
-// APLICATION ARCHITECTURE
+// APPLICATION
 class App {
   constructor() {
     // create User by clicking button
-    submit.addEventListener("click", this.createUser);
+    submit.addEventListener("click", this.createUser.bind(this));
 
     // create User by clicking ENTER
     // ...
@@ -105,8 +105,7 @@ class App {
         infoNickTaken.style.color = "inherit";
         infoNickTaken.textContent = "Nick:";
       }, 3000);
-    }
-    if (
+    } else if (
       nickInput.value.length >= 5 &&
       fNameInput.value.length >= 1 &&
       lNameInput.value.length >= 1 &&
@@ -169,6 +168,7 @@ class App {
       i + 1;
       usersBox.insertAdjacentHTML("afterbegin", html);
     });
+    h3.textContent = Users.map((user) => ` ${user.nick}`);
   }
 
   // reset storage
@@ -181,6 +181,7 @@ class App {
 // Find User
 const findUser = (findnick) => Users.find(({ nick }) => nick === findnick);
 
+///////////
 const app = new App();
 document.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
