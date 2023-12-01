@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <script defer src="script.js"></script>
+    <title>Create User</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create User</h1>
+      <div class="inputs-boxes">
+        <p class="input-describe">First name:</p>
+        <input class="firstName" type="string" for="fname" placeholder="John" />
+        <p class="input-describe">Last name:</p>
+        <input class="lastName" type="string" for="lname" placeholder="Smith" />
+
+        <p class="input-describe input-nick">Nick:</p>
+        <input class="nick" type="string" placeholder="johnny90" />
+        <p class="input-describe">Birth year:</p>
+        <input class="birthYear" type="value" placeholder="1990" />
+      </div>
+      <input class="submit" type="submit" value="Create" />
+      <div class="taken">
+        <h2>Nicks taken:</h2>
+        <h3></h3>
+      </div>
+      <div class="users-all">
+        <h2>Users</h2>
+        <div class="describe-users">
+          <p class="p-describe">First name:</p>
+          <p class="p-describe">Last name:</p>
+          <p class="p-describe">Age:</p>
+        </div>
+        <div class="created-users"></div>
+      </div>
+    </div>
+    <div class="modal-box hidden">
+      <div class="modal">
+        <button class="modal-close-btn modal-btn">X</button>
+        <p class="modal-p">
+          None field should be empty and your nick must have minimum 5 signs!
+          The oldest date is 1920.
+        </p>
+        <button class="modal-ok-btn modal-btn">Cancel</button>
+      </div>
+    </div>
+
+    <h2 class="created-txt">Created!</h2>
+
+    <footer>
+      <p class="copy">&copy;<span class="year">2137</span> by RobFrontend</p>
+    </footer>
+  </body>
+</html>

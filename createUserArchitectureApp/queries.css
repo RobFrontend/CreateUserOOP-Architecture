@@ -1,0 +1,8 @@
+@media (max-width: 35em) {
+  html {
+    font-size: 56.5%;
+  }
+  .modal {
+    min-width: 80%;
+  }
+}
