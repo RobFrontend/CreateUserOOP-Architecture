@@ -157,7 +157,6 @@ class App {
 
   getLocalStorage() {
     const data = JSON.parse(localStorage.getItem("users"));
-    console.log(data);
     if (!data) {
       return;
     }
